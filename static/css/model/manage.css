@@ -46,14 +46,14 @@
 
 /*已完成*/
 .sign_Done{border-top: 1px solid #355096; }
-.sign_Done span{width: 25%;}
+.sign_Done span{width: 20%;}
 .sign_Done>li{border-bottom: 1px solid #355096;}
 .sign_Done .top{background:#8091BD; }
 .sign_Done>li>span:first-child{cursor: pointer;}
 .sign_Done>li>span:first-child:hover{text-decoration: underline;}
 .sign_Done .top>span:first-child{cursor: default;}
 .sign_Done .top>span:first-child:hover{text-decoration: none;}
-
+.sign_Done button {width: 100px; height: 30px; padding: 0; line-height: 30px; text-align: center; margin-top: 7px; }
 
 /*已拒签*/
 .refuse_List{border-top: 1px solid #355096; }
@@ -84,3 +84,10 @@
 .is_DelOpr button{height: 35px;line-height: 35px;cursor: pointer;font-size: 18px;border-radius: 5px; float: left;width: 125px;color: white;}
 .is_DelOpr button:first-child{background: #D90102;float: left;}
 .is_DelOpr button:last-child{background: #2E52AE;float: right;}
+
+.creTit{float: left;width: 100%;box-sizing: border-box;text-align: center;font-size: 18px;line-height: 30px;height: 30px;font-weight: bold;}
+.classFade{position: absolute;padding: 20px; width: 500px;height: 290px;background: white;border-radius: 10px;left: 0;right: 0;bottom: 0;top: 0;margin: auto;}
+.fade_Close{position: absolute;right: 20px;top: 20px;cursor: pointer;}
+.classFade input{float: left;width: 100%;box-sizing: border-box;height: 40px;line-height: 40px;padding: 0 15px;background: #E6E6E6;;border-radius: 5px; margin-top: 20px;}
+.creatSignBtn {height: 40px;margin-top: 10px;}
+.signTip{font-size: 12px;line-height: 30px;text-align: left;color: red;}

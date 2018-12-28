@@ -1,1 +1,344 @@
 [2018-12-28 10:09:44.701] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:34.541] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:34.548] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:34.548] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:34.548] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:34.548] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:34.550] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:35.588] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:36.432] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:36.490] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:36.494] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:36.495] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:36.496] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:36.496] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:37.468] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:54.295] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:54.304] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:54.314] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:54.323] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:54.330] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:54.330] [ERROR] [default] - 请求没有响应
+[2018-12-28 16:58:55.336] [ERROR] [default] - 请求没有响应
+[2018-12-28 17:01:36.990] [ERROR] [default] - { Error: Internal Server Error
+    at Request.callback (G:\GitHub\Blockchain\node_modules\superagent\lib\node\index.js:698:17)
+    at IncomingMessage.<anonymous> (G:\GitHub\Blockchain\node_modules\superagent\lib\node\index.js:922:12)
+    at emitNone (events.js:111:20)
+    at IncomingMessage.emit (events.js:208:7)
+    at endReadableNT (_stream_readable.js:1064:12)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+  original: null,
+  response: 
+   Response {
+     domain: null,
+     _events: {},
+     _eventsCount: 0,
+     _maxListeners: undefined,
+     res: 
+      IncomingMessage {
+        _readableState: [Object],
+        readable: false,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        socket: [Object],
+        connection: [Object],
+        httpVersionMajor: 1,
+        httpVersionMinor: 1,
+        httpVersion: '1.1',
+        complete: true,
+        headers: [Object],
+        rawHeaders: [Array],
+        trailers: {},
+        rawTrailers: [],
+        upgrade: false,
+        url: '',
+        method: null,
+        statusCode: 500,
+        statusMessage: '',
+        client: [Object],
+        _consuming: true,
+        _dumped: false,
+        req: [Object],
+        text: '',
+        read: [Function],
+        body: '' },
+     request: 
+      Request {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        _agent: false,
+        _formData: null,
+        method: 'POST',
+        url: 'http://39.96.22.77:80/member/info',
+        _header: [Object],
+        header: [Object],
+        writable: true,
+        _redirects: 0,
+        _maxRedirects: 5,
+        cookies: '',
+        qs: {},
+        qsRaw: [],
+        _redirectList: [],
+        _streamRequest: false,
+        _data: {},
+        req: [Object],
+        protocol: 'http:',
+        host: '39.96.22.77:80',
+        _callback: [Function],
+        res: [Object],
+        response: [Circular],
+        _timeout: 0,
+        called: true },
+     req: 
+      ClientRequest {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: true,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: false,
+        _removedConnection: false,
+        _removedContLen: false,
+        _removedTE: false,
+        _contentLength: 2,
+        _hasBody: true,
+        _trailer: '',
+        finished: true,
+        _headerSent: true,
+        socket: [Object],
+        connection: [Object],
+        _header: 'POST /member/info HTTP/1.1\r\nHost: 39.96.22.77\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: node-superagent/1.8.5\r\nContent-Type: application/json\r\nCookie: JSESSIONID=6FF00027FCDBE8AF0C5D9EC149A1D8EE\r\nContent-Length: 2\r\nConnection: close\r\n\r\n',
+        _onPendingData: [Function: noopPendingOutput],
+        agent: [Object],
+        socketPath: undefined,
+        timeout: undefined,
+        method: 'POST',
+        path: '/member/info',
+        _ended: true,
+        res: [Object],
+        aborted: undefined,
+        timeoutCb: null,
+        upgradeOrConnect: false,
+        parser: null,
+        maxHeadersCount: null,
+        [Symbol(outHeadersKey)]: [Object] },
+     links: {},
+     text: '',
+     body: '',
+     files: {},
+     buffered: true,
+     headers: 
+      { 'content-type': 'application/json;charset=UTF-8',
+        'content-length': '0',
+        date: 'Fri, 28 Dec 2018 09:01:35 GMT',
+        connection: 'close' },
+     header: 
+      { 'content-type': 'application/json;charset=UTF-8',
+        'content-length': '0',
+        date: 'Fri, 28 Dec 2018 09:01:35 GMT',
+        connection: 'close' },
+     statusCode: 500,
+     status: 500,
+     statusType: 5,
+     info: false,
+     ok: false,
+     redirect: false,
+     clientError: false,
+     serverError: true,
+     error: { Error: cannot POST /member/info (500)
+    at Response.toError (G:\GitHub\Blockchain\node_modules\superagent\lib\node\response.js:106:13)
+    at Response.setStatusProperties (G:\GitHub\Blockchain\node_modules\superagent\lib\node\response.js:183:12)
+    at new Response (G:\GitHub\Blockchain\node_modules\superagent\lib\node\response.js:42:8)
+    at IncomingMessage.<anonymous> (G:\GitHub\Blockchain\node_modules\superagent\lib\node\index.js:918:22)
+    at emitNone (events.js:111:20)
+    at IncomingMessage.emit (events.js:208:7)
+    at endReadableNT (_stream_readable.js:1064:12)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9) status: 500, text: '', method: 'POST', path: '/member/info' },
+     accepted: false,
+     noContent: false,
+     badRequest: false,
+     unauthorized: false,
+     notAcceptable: false,
+     forbidden: false,
+     notFound: false,
+     charset: 'UTF-8',
+     type: 'application/json',
+     setEncoding: [Function: bound ],
+     redirects: [] },
+  status: 500 }
+[2018-12-28 17:01:37.032] [ERROR] [default] - { Error: Internal Server Error
+    at Request.callback (G:\GitHub\Blockchain\node_modules\superagent\lib\node\index.js:698:17)
+    at IncomingMessage.<anonymous> (G:\GitHub\Blockchain\node_modules\superagent\lib\node\index.js:922:12)
+    at emitNone (events.js:111:20)
+    at IncomingMessage.emit (events.js:208:7)
+    at endReadableNT (_stream_readable.js:1064:12)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+  original: null,
+  response: 
+   Response {
+     domain: null,
+     _events: {},
+     _eventsCount: 0,
+     _maxListeners: undefined,
+     res: 
+      IncomingMessage {
+        _readableState: [Object],
+        readable: false,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        socket: [Object],
+        connection: [Object],
+        httpVersionMajor: 1,
+        httpVersionMinor: 1,
+        httpVersion: '1.1',
+        complete: true,
+        headers: [Object],
+        rawHeaders: [Array],
+        trailers: {},
+        rawTrailers: [],
+        upgrade: false,
+        url: '',
+        method: null,
+        statusCode: 500,
+        statusMessage: '',
+        client: [Object],
+        _consuming: true,
+        _dumped: false,
+        req: [Object],
+        text: '',
+        read: [Function],
+        body: undefined },
+     request: 
+      Request {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        _agent: false,
+        _formData: null,
+        method: 'POST',
+        url: 'http://39.96.22.77:80/signature/info',
+        _header: [Object],
+        header: [Object],
+        writable: true,
+        _redirects: 0,
+        _maxRedirects: 5,
+        cookies: '',
+        qs: {},
+        qsRaw: [],
+        _redirectList: [],
+        _streamRequest: false,
+        _data: {},
+        req: [Object],
+        protocol: 'http:',
+        host: '39.96.22.77:80',
+        _callback: [Function],
+        res: [Object],
+        response: [Circular],
+        _timeout: 0,
+        called: true },
+     req: 
+      ClientRequest {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: true,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: false,
+        _removedConnection: false,
+        _removedContLen: false,
+        _removedTE: false,
+        _contentLength: 2,
+        _hasBody: true,
+        _trailer: '',
+        finished: true,
+        _headerSent: true,
+        socket: [Object],
+        connection: [Object],
+        _header: 'POST /signature/info HTTP/1.1\r\nHost: 39.96.22.77\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: node-superagent/1.8.5\r\nContent-Type: application/json\r\nCookie: JSESSIONID=6FF00027FCDBE8AF0C5D9EC149A1D8EE\r\nContent-Length: 2\r\nConnection: close\r\n\r\n',
+        _onPendingData: [Function: noopPendingOutput],
+        agent: [Object],
+        socketPath: undefined,
+        timeout: undefined,
+        method: 'POST',
+        path: '/signature/info',
+        _ended: true,
+        res: [Object],
+        aborted: undefined,
+        timeoutCb: null,
+        upgradeOrConnect: false,
+        parser: null,
+        maxHeadersCount: null,
+        [Symbol(outHeadersKey)]: [Object] },
+     links: {},
+     text: '',
+     body: {},
+     files: {},
+     buffered: true,
+     headers: 
+      { 'content-length': '0',
+        date: 'Fri, 28 Dec 2018 09:01:35 GMT',
+        connection: 'close' },
+     header: 
+      { 'content-length': '0',
+        date: 'Fri, 28 Dec 2018 09:01:35 GMT',
+        connection: 'close' },
+     statusCode: 500,
+     status: 500,
+     statusType: 5,
+     info: false,
+     ok: false,
+     redirect: false,
+     clientError: false,
+     serverError: true,
+     error: { Error: cannot POST /signature/info (500)
+    at Response.toError (G:\GitHub\Blockchain\node_modules\superagent\lib\node\response.js:106:13)
+    at Response.setStatusProperties (G:\GitHub\Blockchain\node_modules\superagent\lib\node\response.js:183:12)
+    at new Response (G:\GitHub\Blockchain\node_modules\superagent\lib\node\response.js:42:8)
+    at IncomingMessage.<anonymous> (G:\GitHub\Blockchain\node_modules\superagent\lib\node\index.js:918:22)
+    at emitNone (events.js:111:20)
+    at IncomingMessage.emit (events.js:208:7)
+    at endReadableNT (_stream_readable.js:1064:12)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9) status: 500, text: '', method: 'POST', path: '/signature/info' },
+     accepted: false,
+     noContent: false,
+     badRequest: false,
+     unauthorized: false,
+     notAcceptable: false,
+     forbidden: false,
+     notFound: false,
+     type: '',
+     setEncoding: [Function: bound ],
+     redirects: [] },
+  status: 500 }
+[2018-12-28 17:02:04.940] [ERROR] [default] - 请求没有响应
+[2018-12-28 17:02:04.943] [ERROR] [default] - 请求没有响应
+[2018-12-28 17:02:04.944] [ERROR] [default] - 请求没有响应

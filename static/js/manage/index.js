@@ -12,7 +12,11 @@ $(function () {
             $(this).addClass('this_Tab');
             $('#mana_TabCon>li').css('display','none');
             $('#mana_TabCon>li').eq($(this).index()).stop(true).fadeIn(150);
+        });
+        $(".fade_Close").on('click',function () {
+            $(this).parents('.fade_Box').stop(true).fadeOut(150);
         })
+        $("#alias").val(window.localStorage.getItem('c_pid'))
     }
     messageUpdateRead();
     function messageUpdateRead() {
@@ -226,6 +230,7 @@ $(function () {
         Html += '<span>签署方</span>';
         Html += '<span>发起时间</span>';
         Html += '<span>完成时间</span>';
+        Html += '<span>操作</span>';
         Html += '</li>';
         return Html;
     }
@@ -238,10 +243,14 @@ $(function () {
                 var this_Data = data[i];
                 Html += '<li>';
                 Html += '<span data-id="'+this_Data.id+'"><a href="/signinfo?id='+this_Data.id+'">'+this_Data.contract+'</a></span>';
-                // Html += '<span class="to_Agreeinf" data-id="'+this_Data.id+'">'+this_Data.contract+'</span>';
                 Html += '<span>'+this_Data.signin+'</span>';
                 Html += '<span>'+this_Data.startTime+'</span>';
                 Html += '<span>'+this_Data.endTime+'</span>';
+                if(this_Data.flag == 'Y') {
+                    Html +="<button class='btn btn-primary wasmSignBtn' data-this_Data='"+JSON.stringify(this_Data)+"'>签名</button>"
+                } else {
+                    Html +="<button class='btn btn-primary ' disabled data-this_Data='"+JSON.stringify(this_Data)+"'>签名</button>"
+                }
                 Html += '</li>';
             }
         }
@@ -251,10 +260,73 @@ $(function () {
     //渲染数据
     function renderDoneHtml(data) {
         $('#sign_Done').html(creDoneHtml(data))
+        wasmSignBtnEvt();
+    }
+    //签名
+    function wasmSignBtnEvt() {
+        $('.wasmSignBtn').on('click',function () {
+            var this_Data = JSON.parse($(this).attr('data-this_Data'));
+            $("#creatSign").stop(true).fadeIn(150);
+            $("#creatSignBtn").attr('data-this_Data',$(this).attr('data-this_Data'));
+        })
+    }
+    creatSignBtn();
+    function creatSignBtn() {
+        $("#creatSignBtn").on('click',function () {
+            var this_Data = JSON.parse($(this).attr('data-this_Data'));
+            var message = this_Data.fileHash;
+            var id = this_Data.id;
+            var alias = $('#alias').val();
+            var auth = $('#auth').val();
+            if(!alias) {layer.msg('请输入用户名(注册时的手机号)');return}
+            if(!echo.fun.checkPhone(alias)) {
+                layer.msg('账户格式错误，请重新输入');
+                return
+            }
+            if(!auth) {layer.msg('请输入密码');return}
+            readKeyFile(alias,auth,message,id);
+        })
+    }
+    //文件读取
+    function readKeyFile(alias,auth,message,id) {
+        layer.msg('签名中，请稍后...签名结束自动关闭此弹窗.')
+        var SubData = {};
+        var Url = '/readKeyFile';
+        SubData.alias = alias;
+        SubData.auth = auth;
+        echo.ajax.post(Url,SubData,function (res) {
+            echo.ajax.callback( res,function () {
+                console.log(res)
+                var key = res.data;
+                var signData = {message:message, key: key, password: auth}
+                // var signData = {message:'91c3ea050a9226ca95348ba2ed6f98ab6fd8ec1ce43a7b140476592d4406c449', key: key, password: auth}
+                createSignMessage(signData,id)
+            })
+        })
     }
 
-
-
+    //创建签名
+    function createSignMessage(signData,id) {
+        signMessage(signData).then(r =>{
+            var signature = r.data;
+            console.log(signature)
+            contractSaveSignature(signature,id)
+        }).catch(err => {
+            echo.box.alert(err)
+        })
+    }
+    //请求后台
+    function contractSaveSignature(signature,id) {
+        var Url = '/contractSaveSignature';
+        var SubData = {};
+        SubData.id = id
+        SubData.signature = signature
+        echo.ajax.post(Url,SubData,function (res) {
+            echo.ajax.callback(res,function () {
+                getDoneAjax()
+            })
+        })
+    }
     //获取已拒绝Ajax
     getRefuseAjax()
     function getRefuseAjax() {

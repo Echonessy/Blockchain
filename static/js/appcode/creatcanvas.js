@@ -1,103 +1,75 @@
 /**
  * Created by Echonessy on 2018/12/12.
  */
-$(function () {
-    initCanvas()
-    function initCanvas() {
-        var screen = $('#app_Content').width();
-        $('#myCanvas').css({'width':screen,"height":screen});
-        InitThis()
+var canvas,board,img;
+canvas = document.getElementById('myCanvas');
+img= document.getElementById('img');
+var screen = $('#app_Content').width();
+canvas.height = screen;
+canvas.width = screen;
+board = canvas.getContext('2d');
+var mousePress = false;
+var last = null;
+function beginDraw(){
+    mousePress = true;
+}
+function drawing(event){
+    event.preventDefault();
+    if(!mousePress)return;
+    var xy = pos(event);
+    if(last!=null){
+        board.beginPath();
+        board.moveTo(last.x,last.y);
+        board.lineTo(xy.x,xy.y);
+        board.stroke();
     }
+    last = xy;
 
-    var mousePressed = false;
-    var lastX, lastY;
-    var ctx;
-    function InitThis() {
-        ctx = document.getElementById('myCanvas').getContext("2d");
-        var myCanvas = $('#myCanvas');
-        myCanvas.on('touchstart',function (e) {
-                console.log(e.target)
+}
 
-                mousePressed = true;
-                Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
-        })
-        myCanvas.on('touchmove',function (e) {
-            console.log(e.pageX)
-                if (mousePressed) {
+function endDraw(event){
+    mousePress = false;
+    event.preventDefault();
+    last = null;
+}
 
-                    Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
-                }
-        })
-        myCanvas.on('touchend',function (e) {
-                if (mousePressed) {
-                    mousePressed = false;
-                    cPush();
-                }
-        })
-        //
-        // $('#myCanvas').touch(function (e) {
+function pos(event){
+    var x,y;
+    var pot = $("#myCanvas").position().top;
+    if(isTouch(event)){
+        x = event.touches[0].pageX;
+        y = event.touches[0].pageY - pot;
+    }else{
+        x = event.offsetX+event.target.offsetLeft;
+        y = event.offsetY+event.target.offsetTop - pot;
+    }
+    return {x:x,y:y};
+}
+function isTouch(event){
+    var type = event.type;
+    if(type.indexOf('touch')>=0){
+        return true;
+    }else{
+        return false;
+    }
+}
 
-        // });
-        // $('#myCanvas').touchStart(function (e) {
+function save(){
+    //base64
+    var dataUrl = canvas.toDataURL();
+    img.src = dataUrl;
+}
 
-        // });
-        // $('#myCanvas').touchEnd(function (e) {
 
-        // });
-        //
-        // $('#myCanvas').mouseleave(function (e) {
-        //     if (mousePressed) {
-        //         mousePressed = false;
-        //         cPush();
-        //     }
-        // });
-        // drawImage();
-    }
-    function drawImage() {
-        var image = new Image();
-        image.src = 'img/bg.jpg';
-        $(image).load(function () {
-            ctx.drawImage(image, 0, 0, 500, 200);
-            cPush();
-        });
-    }
-    function Draw(x, y, isDown) {
-        if (isDown) {
-            ctx.beginPath();
-            ctx.strokeStyle = "red";
-            ctx.lineWidth = 5;
-            ctx.lineJoin = "round";
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(x, y);
-            ctx.closePath();
-            ctx.stroke();
-        }
-        lastX = x;
-        lastY = y;
-    }
-    var cPushArray = new Array();
-    var cStep = -1;
-    function cPush() {
-        cStep++;
-        console.log(cStep)
-        if (cStep < cPushArray.length) { cPushArray.length = cStep; }
-        cPushArray.push(document.getElementById('myCanvas').toDataURL());
-    }
-    function cUndo() {
-        if (cStep > 0) {
-            cStep--;
-            var canvasPic = new Image();
-            canvasPic.src = cPushArray[cStep];
-            console.log(canvasPic.src)
-            canvasPic.onload = function () { ctx.drawImage(canvasPic, 0, 0); };
-        }
-    }
-    function cRedo() {
-        if (cStep < cPushArray.length-1) {
-            cStep++;
-            var canvasPic = new Image();
-            canvasPic.src = cPushArray[cStep];
-            canvasPic.onload = function () { ctx.drawImage(canvasPic, 0, 0); }
-        }
-    }
-})
+function clean(){
+    board.clearRect(0,0,canvas.width,canvas.height);
+}
+
+board.lineWidth = 3;
+board.strokeStyle="#000";
+canvas.onmousedown = beginDraw;
+canvas.onmousemove = drawing;
+canvas.onmouseup = endDraw;
+canvas.addEventListener('touchstart',beginDraw,false);
+canvas.addEventListener('touchmove',drawing,false);
+canvas.addEventListener('touchend',endDraw,false);

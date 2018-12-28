@@ -41,6 +41,12 @@ module.exports.contractSimpleInfo = function (data,req) {
     var reqUrl=url+'/contract/simpleInfo';
     return common.postMethod(reqUrl,data,req);
 };
+// 签名
+module.exports.contractSaveSignature = function (data,req) {
+    var url = config.javaServerUrl;
+    var reqUrl=url+'/contract/saveSignature';
+    return common.postMethod(reqUrl,data,req);
+};
 
 
 

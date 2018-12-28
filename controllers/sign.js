@@ -57,4 +57,12 @@ exports.contractSimpleInfo = function (req, res) {
     }).catch(function (e) {
         return responseHelper.serverExceptionTip(res, e.message);
     });
+};//签名
+exports.contractSaveSignature = function (req, res) {
+    let reqData = req.body;
+    sign.contractSaveSignature(reqData ,req).then(function (data) {
+        return res.json(data);
+    }).catch(function (e) {
+        return responseHelper.serverExceptionTip(res, e.message);
+    });
 };

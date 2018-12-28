@@ -45,6 +45,19 @@
   </div>
 </div>
 
+
+<div class="fade_Box" id="creatSign">
+  <div class="classFade">
+    <img src="/static/img/layout/close.png" alt="" class="fade_Close">
+    <p class="creTit">签名</p>
+    <input type="text" id="alias" class="input1" maxlength="11" placeholder="请输入手机号码">
+    <input type="text" id="auth" class="input1" placeholder="请输入私钥密码">
+    <span class="single signTip">* 注：此处号码为注册手机号，密码为生成私钥设置的密码</span>
+    <button class="single btn btn-primary creatSignBtn " data-hash="{}" id="creatSignBtn">确认</button>
+  </div>
+</div>
+
+<script src="/static/js/wasm/wasm.js"></script>
 <script src="/static/js/manage/index.js"></script>
 <%include ../layout/nullfooter.ejs%>
 
