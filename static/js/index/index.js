@@ -58,6 +58,9 @@ $(function () {
             }
             loginAjax(phone,verifyCode);
         });
+        $("#dataList li").on('click',function () {
+            window.location.href='/manage'
+        })
     }
     //获取登录验证码Ajax
     function loginVerifyCode(phone) {
