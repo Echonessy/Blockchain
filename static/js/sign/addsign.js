@@ -39,7 +39,9 @@ $(function () {
     function renderInfoImg(data) {
         console.log(data)
         if(!data) {return}
-        $("#my_SignImg").attr('src',data[data.length-1].url);
+        if (data.length>0) {
+            $("#my_SignImg").attr('src',data[data.length-1].url);
+        }
         var Html = '';
         for(var i=0; i<data.length;i++) {
             var this_Data = data[i];

@@ -323,6 +323,8 @@ $(function () {
         SubData.signature = signature
         echo.ajax.post(Url,SubData,function (res) {
             echo.ajax.callback(res,function () {
+                layer.msg('签名成功!');
+                $("#creatSign").stop(true).fadeOut(150);
                 getDoneAjax()
             })
         })

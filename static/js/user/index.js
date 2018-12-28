@@ -158,7 +158,6 @@ $(function () {
                 layer.msg('添加成功');
                 listSearch();
                 $('#link_Fade').stop(true).fadeOut(150);
-
             })
         })
     }
