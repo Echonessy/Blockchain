@@ -1,20 +1,8 @@
 <div class="user_FunCon ">
   <p class="single user_AccountTitle">我的签章</p>
-  <ul class="single user_SignList" id="user_SignList">
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-    <!--<li><img src="/static/img/logo.png" alt=""></li>-->
-  </ul>
+  <ul class="single user_SignList" id="user_SignList"></ul>
   <div class="single sign_Choice">
-    <div class="sign_file">
+    <div class="sign_file" id="openWebCode">
       <img src="/static/img/model/add.png" alt="">
       <span>在线添加签章</span>
     </div>
@@ -42,6 +30,16 @@
     </div>
   </div>
 </div>
+<div class="sign_Fade" id="webCode">
+  <div id="code_Box" class="code_Box box_Center ">
+    <img src="/static/img/layout/close.png" alt="" class="fade_Close">
+    <img src="/static/img/code.png" class="code_Img" alt="">
+    <p class="code_Txt single">扫码添加签章</p>
+  </div>
+</div>
+
+
+
 <!---->
 <form  id="formLocal" style="display: none;" method="post">
   <input  name="file" type="file" style="display: none;" accept = "image/png" id="fileLocal"  data-header="">

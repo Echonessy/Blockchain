@@ -129,4 +129,11 @@
     margin-left: 20px;
 }
 
-
+/*在线扫码*/
+.add_Box{width: 380px;height: 430px;padding: 100px 20px;}
+.add_Btn{float: left;background: #2F53B1;margin-top: 32px; text-align: center;color: white;border-radius: 5px; width:100%;height: 35px;line-height: 35px;box-sizing: border-box; }
+.add_Btn:hover{background: #6279B6;}
+.code_Box{width: 380px;height: 430px;padding: 60px 55px;}
+.code_Img{float: left; width: 100%;}
+.code_Txt{line-height: 30px;font-size: 18px;text-align: center;margin-top: 20px;}
+.fade_Close{position: absolute;right: 20px;top: 20px;cursor: pointer;}

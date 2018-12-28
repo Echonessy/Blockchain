@@ -25,7 +25,7 @@ $(function () {
         SubData.id = ''
         echo.ajax.post(Url,SubData,function (res) {
             echo.ajax.callback(res,function () {
-                renderDoneHtml(res.data)
+                
             })
         })
     }

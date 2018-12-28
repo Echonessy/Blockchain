@@ -245,7 +245,9 @@ $(function () {
                     console.log(result)
                     var url = result.toDataURL('image/png',0.5);
                     console.log(url)
-                    signatureAdd(url)
+                    base64ToUrl(url,function (webUrl) {
+                        signatureAdd(webUrl)
+                    })
                     // uploadbase64(url)
                 }
 
@@ -258,6 +260,13 @@ $(function () {
         $("#openLocal").on('click',function () {
             $("#localFade").fadeIn(150);
         })
+        $("#openWebCode").on('click',function () {
+            $("#webCode").fadeIn(150);
+        })
+        $(".fade_Close").on('click',function () {
+            $(this).parents('.sign_Fade').fadeOut(150);
+        })
+
         $("#cancelLocal").on('click',function () {
             $("#localFade").fadeOut(150);
         })
@@ -296,6 +305,22 @@ $(function () {
             corpUpImgEvt();
         })
     }
+
+    //base64上传后获取url
+    function base64ToUrl(url,fun) {
+        var Url = '/upload4';
+        var SubData = {};
+        SubData.phone = window.localStorage.getItem('c_pid');
+        SubData.url = url
+        echo.ajax.post(Url,SubData,function (res) {
+            echo.ajax.callback(res,function () {
+                var this_Url = res.data.urls[0];
+                fun(this_Url);
+            })
+        })
+    }
+
+
 //    添加签章
     function signatureAdd(url) {
         var Url = '/signatureAdd';
@@ -304,6 +329,7 @@ $(function () {
         echo.ajax.post(Url,SubData,function (res) {
             echo.ajax.callback(res,function () {
                 layer.msg('添加成功');
+                $(".sign_Fade").stop(true).fadeOut(150);
                 signatureInfo();
             })
         })
