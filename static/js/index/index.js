@@ -105,7 +105,7 @@ $(function () {
     function redMsg(data) {
         if(!data) {return}
         if(!data.list) {return}
-        if(data.length == 0) {return}
+        if(data.list.length == 0) {return}
         $("#remindIco").fadeIn(150);
     }
     // 修改消息为已读

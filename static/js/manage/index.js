@@ -13,8 +13,19 @@ $(function () {
             $('#mana_TabCon>li').css('display','none');
             $('#mana_TabCon>li').eq($(this).index()).stop(true).fadeIn(150);
         })
-
     }
+    messageUpdateRead();
+    function messageUpdateRead() {
+        var Url = '/messageUpdateRead';
+        var SubData = {};
+        SubData.id = ''
+        echo.ajax.post(Url,SubData,function (res) {
+            echo.ajax.callback(res,function () {
+                renderDoneHtml(res.data)
+            })
+        })
+    }
+    
     //阻止冒泡
     function stopBubble(evt) {
         var evt = evt||window.event;
@@ -78,7 +89,12 @@ $(function () {
             for(var i=0;i<data.length;i++) {
                 var this_Data = data[i];
                 Html += '<li>';
-                Html += '<span data-id="'+this_Data.id+'"><a href="/signinfo?id='+this_Data.id+'">'+this_Data.contract+'</a></span>';
+                if(this_Data.status == '待我签') {
+                    Html += '<span data-id="'+this_Data.id+'"><a href="/passivesign?id='+this_Data.id+'">'+this_Data.contract+'</a></span>';
+
+                } else {
+                    Html += '<span data-id="'+this_Data.id+'"><a href="/signinfo?id='+this_Data.id+'">'+this_Data.contract+'</a></span>';
+                }
                 Html += '<span>'+this_Data.initiator+'</span>';
                 Html += '<span>'+this_Data.startTime+'</span>';
                 Html += '<span>'+this_Data.endTime+'</span>';
